@@ -1,0 +1,72 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Write a description of class Inspector here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Inspector extends Alien
+{
+    private ArrayList<Picker> pickers = new ArrayList<Picker>();
+    
+    public void addPicker(Picker obj)
+    {
+        pickers.add(obj);
+    }
+    
+    public void removePicker(Picker obj)
+    {
+        pickers.remove(obj);
+    }
+    public void update(Coin coin){
+        
+       inspect(coin);
+     }
+     
+    public void inspect( Coin coin )
+    {
+       //setMessage(coin.getClass().getName()) ;// Calling method of base class
+       if (coin.getClass() == Quarter.class)
+       {
+       	 setMessage ("A valid quarter coin!");
+	       GreenPicker greenPicker = null;
+	       RandomPicker randomPicker = null;
+	       List<GreenPicker> greenPick = null;
+	       List<RandomPicker> randomPick = null;
+	            
+	       greenPick= (List<GreenPicker>)getWorld().getObjects(GreenPicker.class);
+	       greenPicker = (GreenPicker)greenPick.get(0); 
+	            
+	       randomPick= (List<RandomPicker>)getWorld().getObjects(RandomPicker.class);
+	       randomPicker = (RandomPicker)randomPick.get(0);
+	       
+	       addPicker (greenPicker);
+	       addPicker (randomPicker);
+	
+	       int whichPicker = Greenfoot.getRandomNumber (pickers.size());
+	       Picker pickerChosen = pickers.get(whichPicker);
+	       System.out.println ("Picker: " + pickerChosen.getClass());
+	       pickerChosen.pick();
+       }
+       else if (coin.getClass() == Penny.class) 
+       {
+         setMessage ("You just inserted a penny, please insert a quarter!");
+       }
+       else if (coin.getClass() == FakeQuarter.class)
+       {
+       	 setMessage ("No No No. You got a fake Coin! "); 
+       }       
+    }
+        
+    /**
+     * Act - do whatever the Inspector wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        // Add your action code here.
+    }    
+}

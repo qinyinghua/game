@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Inspector
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Inspector\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=coin
+comment1.target=void\ update(Coin)
+comment2.params=coin
+comment2.target=boolean\ inspect(Coin)
+comment3.params=
+comment3.target=void\ act()
+comment3.text=\r\n\ Act\ -\ do\ whatever\ the\ Inspector\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+numComments=4
